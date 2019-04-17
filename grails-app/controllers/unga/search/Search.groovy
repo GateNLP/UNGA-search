@@ -34,11 +34,7 @@ class SearchController {
 
     matrix.populate(grailsApplication.config.mimir.indexURL, webUtils);
 
-    //TODO build the results in a way D3 can display then return the JSON
-
-    System.out.println(AssociationMatrix.convertDate(params.from));
-
-    render(view: "results", model: [matrix: matrix as JSON, from: AssociationMatrix.convertDate(params.from), to: AssociationMatrix.convertDate(params.to)])
+    render(view: "results", model: [matrix: matrix as JSON])
   }
 
   def sentences() {
