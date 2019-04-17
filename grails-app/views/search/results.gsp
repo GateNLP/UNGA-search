@@ -15,7 +15,7 @@ var network_data = JSON.parse("${matrix}");
         <div>
             <p>Sentence level co-occurences between ${from} and ${to}</p>
 
-            <!--    <h1>Food Security Media Analysis Knowledgebase</h1>-->
+            <!--    <h1>UN GA Resolutions</h1>-->
 
 
 
