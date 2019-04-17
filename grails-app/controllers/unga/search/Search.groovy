@@ -43,7 +43,8 @@ class SearchController {
 
   def sentences() {
 
-    Shrapnel query = new Shrapnel("({Sentence} OVER (\""+params.source+"\" AND \""+params.target+"\")) IN {Document date >= "+params.from+" date <= "+params.to+"}", new ArrayList<String>());;
+    Shrapnel query = new Shrapnel("({Sentence} OVER (\"" + params.source +
+            "\" AND \"" + params.target + "\"))", new ArrayList<String>());
 
     WebUtils webUtils = new WebUtils(grailsApplication.config.mimir.username, grailsApplication.config.mimir.password);
     query.execute(grailsApplication.config.mimir.indexURL, webUtils, true);
