@@ -22,21 +22,17 @@ public class AssociationMatrix {
 
   private List<Entry> links;
 
-  private String from, to;
-
-  public static AssociationMatrix build(String keywords1, String keywords2, Date from, Date to) {
-    return new AssociationMatrix(keywords1,keywords2,from,to);
+  public static AssociationMatrix build(String keywords1, String keywords2) {
+    return new AssociationMatrix(keywords1, keywords2);
   }
 
   public void populate(String indexURL, WebUtils webUtils) throws Exception {
     NominalSlot word1 = new NominalSlot("word1", rowStrings.toArray(new String[rowStrings.size()]));
     NominalSlot word2 = new NominalSlot("word2", columnStrings.toArray(new String[columnStrings.size()]));
 
-
-
     links = Collections.synchronizedList(new ArrayList<Entry>());
 
-    Shrapnel query = new Shrapnel("({Sentence} OVER (\"${word1}\" AND \"${word2}\")) IN {Document date >= "+from+" date <= "+to+"}", new ArrayList<String>());;
+    Shrapnel query = new Shrapnel("({Sentence} OVER (\"${word1}\" AND \"${word2}\"))", new ArrayList<String>());;
 
     List<Shrapnel> exploded = QueryExplosion.explode(query,word2,word1);
 
@@ -59,28 +55,14 @@ public class AssociationMatrix {
     //}
   }
 
-  public static String convertDate(Date date) {
-    String converted = ""+ (date.getYear()+1900);
 
-    int month = date.getMonth()+1;
-    int day = date.getDate();
-
-    converted += (month < 10 ? "0" : "")+month;
-    converted += (day < 10 ? "0" : "")+day;
-
-    return converted;
-  }
-
-  private AssociationMatrix(String keywords1, String keywords2, Date from, Date to) {
+  private AssociationMatrix(String keywords1, String keywords2) {
     //no idea why this is necessary but without I get a class cast exception
     System.out.println(keywords1.getClass());
     System.out.println(keywords2.getClass());
 
     this.rowStrings = splitKeywords(keywords1);
     this.columnStrings = splitKeywords(keywords2);
-
-    this.from = AssociationMatrix.convertDate(from);
-    this.to = AssociationMatrix.convertDate(to);
   }
 
   public List<Node> getRow_nodes() {
@@ -105,14 +87,6 @@ public class AssociationMatrix {
 
   public List<Entry> getLinks() {
     return links;
-  }
-
-  public String getFrom() {
-    return from;
-  }
-
-  public String getTo() {
-    return to;
   }
 
   private static List<String> splitKeywords(String input) {

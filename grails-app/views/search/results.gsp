@@ -17,9 +17,6 @@ var network_data = JSON.parse("${matrix}");
 
             <!--    <h1>UN GA Resolutions</h1>-->
 
-
-
-
             <div id="wrapper">
                 <div id='svg_div'></div>
             </div>
