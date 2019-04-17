@@ -13,7 +13,7 @@ var network_data = JSON.parse("${matrix}");
 <div id="content" role="main">
     <section class="row colset-2-its">
         <div>
-            <p>Sentence level co-occurences between ${from} and ${to}</p>
+            <p>Sentence level co-occurences</p>
 
             <!--    <h1>UN GA Resolutions</h1>-->
 
