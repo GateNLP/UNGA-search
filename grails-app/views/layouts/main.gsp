@@ -25,7 +25,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="${createLink(uri: '/')}">
-                <asset:image src="un-logo.png" alt="UN Logo"/>
+                <asset:image src="un-logo.png" alt="UN logo" style="float: left;"/>
+                <asset:image src="logo-gate.png" alt="GATE logo" style="float: right;"/>
             </a>
         </div>
         <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
