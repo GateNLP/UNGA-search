@@ -1,10 +1,5 @@
-unga:
-    startDay: 1
-    startMonth: 12
-    startYear: 2016
 mimir:
-    #http://gateservice10.dcs.shef.ac.uk:8092/unga/mimir/demo/search/index
-    indexURL: http://localhost:8092/unga/mimir/demo/search/index
+    indexURL: http://localhost:8092/unga/mimir/demo/
     username:
     password:
 
