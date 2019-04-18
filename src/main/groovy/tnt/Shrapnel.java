@@ -96,20 +96,8 @@ public class Shrapnel {
           count += bindings.size();
 
           if (collectResults) {
-
-
             DocumentResult docResult = new DocumentResult(mimir.getDocumentTitle(rank), mimir.getDocumentURI(rank));
-
             documents.add(docResult);
-
-
-
-
-
-
-
-
-
             for (Binding binding : bindings) {
               String[][] tokens = mimir.getDocumentText(rank, binding.getTermPosition(), binding.getLength());
 
