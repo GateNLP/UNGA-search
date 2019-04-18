@@ -27,8 +27,8 @@
             <a class="navbar-brand" href="${createLink(uri: '/')}">
                 <asset:image src="un-logo.png" alt="UN logo"/>
             </a>
-            <asset:image src="logo-gate.png" alt="GATE logo" style="float: right;"/>
         </div>
+        <asset:image src="logo-gate.png" alt="GATE logo" class="navbar-right"/>
         <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
             <ul class="nav navbar-nav navbar-right">
                 <g:pageProperty name="page.nav" />
