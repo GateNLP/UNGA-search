@@ -19,11 +19,11 @@ public class AssociationMatrix {
   private static Pattern regexp = Pattern.compile("[^\\s\"']+|\"([^\"]*)\"");
 
   private List<String> rowStrings, columnStrings;
-
+  private String searchArea;
   private List<Entry> links;
 
-  public static AssociationMatrix build(String keywords1, String keywords2) {
-    return new AssociationMatrix(keywords1, keywords2);
+  public static AssociationMatrix build(String keywords1, String keywords2, String searchArea) {
+    return new AssociationMatrix(keywords1, keywords2, searchArea);
   }
 
   public void populate(String indexURL, WebUtils webUtils) throws Exception {
@@ -32,7 +32,18 @@ public class AssociationMatrix {
 
     links = Collections.synchronizedList(new ArrayList<Entry>());
 
-    Shrapnel query = new Shrapnel("({Sentence} OVER (\"${word1}\" AND \"${word2}\"))", new ArrayList<String>());;
+    String queryString;
+    if (searchArea.equals("preamble")) {
+      queryString = "({Preamble} OVER ({Sentence} OVER (\"${word1}\" AND \"${word2}\")))";
+    }
+    else if (searchArea.equals("operative")) {
+      queryString = "({Operative} OVER ({Sentence} OVER (\"${word1}\" AND \"${word2}\")))";
+    }
+    else { // anywhere
+      queryString = "({Sentence} OVER (\"${word1}\" AND \"${word2}\"))";
+    }
+
+    Shrapnel query = new Shrapnel(queryString, new ArrayList<String>());;
 
     List<Shrapnel> exploded = QueryExplosion.explode(query,word2,word1);
 
@@ -56,13 +67,15 @@ public class AssociationMatrix {
   }
 
 
-  private AssociationMatrix(String keywords1, String keywords2) {
+  private AssociationMatrix(String keywords1, String keywords2, String searchArea) {
     //no idea why this is necessary but without I get a class cast exception
     System.out.println(keywords1.getClass());
     System.out.println(keywords2.getClass());
+    System.out.println(searchArea.getClass());
 
     this.rowStrings = splitKeywords(keywords1);
     this.columnStrings = splitKeywords(keywords2);
+    this.searchArea = searchArea;
   }
 
   public List<Node> getRow_nodes() {
