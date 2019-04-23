@@ -25,9 +25,9 @@
     </div>
 
     <div class="form-row"
-    <span>Search within</span>
+    <span>Search for co-occurrences within sentences</span>
     <g:radioGroup name="searchArea"
-                  labels="['preamble paragraphs only', 'operative paragraphs only', 'anywhere in the documents']"
+                  labels="['in preamble paragraphs only', 'in operative paragraphs only', 'anywhere in the document']"
                   values="['preamble', 'operative', 'anywhere']">
         <p>${it.radio} ${it.label}</p>
     </g:radioGroup>
