@@ -15,12 +15,14 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="keywords1">I Am Searching For...</label>
-            <input type="text" class="form-control" name="keywords1">
+            <input type="text" class="form-control" name="keywords1"
+                   placeholder="cuba economic commercial"/>
         </div>
 
         <div class="form-group col-md-6">
             <label for="keywords2">Related To...</label>
-            <input type="text" class="form-control" name="keywords2">
+            <input type="text" class="form-control" name="keywords2"
+                   placeholder="united states embargo"/>
         </div>
     </div>
 
