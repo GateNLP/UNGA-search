@@ -34,10 +34,10 @@ public class AssociationMatrix {
 
     String queryString;
     if (searchArea.equals("preamble")) {
-      queryString = "({Preamble} OVER ({Sentence} OVER (\"${word1}\" AND \"${word2}\")))";
+      queryString = "({Sentence} OVER (\"${word1}\" AND \"${word2}\") IN {Preamble})";
     }
     else if (searchArea.equals("operative")) {
-      queryString = "({Operative} OVER ({Sentence} OVER (\"${word1}\" AND \"${word2}\")))";
+      queryString = "({Sentence} OVER (\"${word1}\" AND \"${word2}\") IN {Operative})";
     }
     else { // anywhere
       queryString = "({Sentence} OVER (\"${word1}\" AND \"${word2}\"))";
