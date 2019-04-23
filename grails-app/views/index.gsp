@@ -25,9 +25,9 @@
     </div>
 
     <div class="form-row"
-    <span>Search within areas of documents:</span>
+    <span>Search within</span>
     <g:radioGroup name="searchArea"
-                  labels="['preamble', 'operative', 'anywhere']"
+                  labels="['preamble paragraphs only', 'operative paragraphs only', 'anywhere in the documents']"
                   values="['preamble', 'operative', 'anywhere']">
         <p>${it.radio} ${it.label}</p>
     </g:radioGroup>
