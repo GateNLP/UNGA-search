@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
 import gate.mimir.index.IndexException;
@@ -24,8 +26,22 @@ public class Shrapnel {
 
   List<DocumentResult> documents;
 
+  Pattern annotationPattern = Pattern.compile("\"$([^\"]+)\"");
+
   public Shrapnel(String query, List<String> fillers) {
-    this.query = query;
+    String modifiedQuery = query;
+
+    // "$Person" -> {Person} no quotes
+    // might occur more than once
+
+    Matcher matcher = annotationPattern.matcher(modifiedQuery);
+    while (matcher.find()) {
+      String annotation = matcher.group(1);
+      modifiedQuery = matcher.replaceFirst("{" + annotation + "}");
+      matcher = annotationPattern.matcher(modifiedQuery);
+    }
+
+    this.query = modifiedQuery;
     this.fillers = fillers;
   }
 
