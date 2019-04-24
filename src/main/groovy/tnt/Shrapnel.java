@@ -25,25 +25,32 @@ public class Shrapnel {
   List<Long> docs = null;
 
   List<DocumentResult> documents;
-
-  Pattern annotationPattern = Pattern.compile("\"$([^\"]+)\"");
+  
+  Pattern annotationPattern = Pattern.compile("\"\\$(\\p{Alnum}+)\"");
 
   public Shrapnel(String query, List<String> fillers) {
-    String modifiedQuery = query;
+    this.query = query;
+    this.fillers = fillers;
+  }
 
-    // "$Person" -> {Person} no quotes
-    // might occur more than once
+
+  // "$Person" -> {Person} without quotes
+  // might occur more than once
+
+  private void modifyQuery() {
+    String modifiedQuery = this.query;
 
     Matcher matcher = annotationPattern.matcher(modifiedQuery);
     while (matcher.find()) {
       String annotation = matcher.group(1);
+      matcher.reset();
       modifiedQuery = matcher.replaceFirst("{" + annotation + "}");
       matcher = annotationPattern.matcher(modifiedQuery);
     }
 
     this.query = modifiedQuery;
-    this.fillers = fillers;
   }
+
 
   public List<String> getFillers() {
     return fillers;
@@ -85,6 +92,8 @@ public class Shrapnel {
 
   public void execute(String indexURL, WebUtils webUtils, boolean collectResults)
           throws IOException, InterruptedException, IndexOutOfBoundsException, IndexException {
+
+    this.modifyQuery();
 
     System.out.println(query);
     RemoteQueryRunner mimir = new RemoteQueryRunner(indexURL, query, null, webUtils);
