@@ -14,7 +14,8 @@
             <p>Sentence level co-occurences of <i>${params.source}</i> and <i>${params.target}</i> between ${params.from} and ${params.to}</p>
             <g:each var="document" in="${results}" >
                 <div>
-                    <h1><a href="${document.getURL()}">${document.getTitle()}</a></h1>
+                    <!--<h1><a href="${document.getURL()}">${document.getTitle()}</a></h1>-->
+                    <h1>${document.getTitle()}</h1>
 
                     <g:each var="sentence" in="${document.getSentences()}" >
                         <p>${sentence}</p>
