@@ -11,24 +11,25 @@
 <section class="row colset-2-its">
 <h1>UN GA Resolutions</h1>
 
-<g:form controller="search" action="results">
+<g:form controller="search" action="results" id="form">
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="keywords1">I Am Searching For...</label>
-            <input type="text" class="form-control" name="keywords1"
-                   placeholder="cuba economic commercial"/>
+            <label for="keywords1">Space-separated list of keywords or annotation types:</label>
+            <input type="text" class="form-control" id="keywords1" name="keywords1"
+                required placeholder="cuba economic commercial $Person"/>
         </div>
 
         <div class="form-group col-md-6">
-            <label for="keywords2">Related To...</label>
-            <input type="text" class="form-control" name="keywords2"
-                   placeholder="united states embargo"/>
+            <label for="keywords2">Another list to compare with:</label>
+            <input type="text" class="form-control" id="keywords2" name="keywords2"
+                   required placeholder="united states embargo $Organization"/>
         </div>
     </div>
 
-    <div class="form-row"
+    <div class="form-row">
     <span>Search for co-occurrences within sentences</span>
     <g:radioGroup name="searchArea"
+                  required="true"
                   labels="['in preamble paragraphs only', 'in operative paragraphs only', 'anywhere in the document']"
                   values="['preamble', 'operative', 'anywhere']">
         <p>${it.radio} ${it.label}</p>
@@ -37,7 +38,8 @@
 
     <div class="form-row pull-right">
         <div class="col-md-6">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary"
+                    id="submit">Search</button>
         </div>
     </div>
 </g:form>
