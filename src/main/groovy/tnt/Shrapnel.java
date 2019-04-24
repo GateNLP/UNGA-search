@@ -25,7 +25,7 @@ public class Shrapnel {
   List<Long> docs = null;
 
   List<DocumentResult> documents;
-  
+
   Pattern annotationPattern = Pattern.compile("\"\\$(\\p{Alnum}+)\"");
 
   public Shrapnel(String query, List<String> fillers) {
