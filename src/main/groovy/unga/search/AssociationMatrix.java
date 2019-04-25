@@ -21,7 +21,7 @@ public class AssociationMatrix {
   private List<String> rowStrings, columnStrings;
   private String searchArea;
   private List<Entry> links;
-  
+
   public static AssociationMatrix build(String keywords1, String keywords2, String searchArea) {
     return new AssociationMatrix(keywords1, keywords2, searchArea);
   }
