@@ -23,9 +23,14 @@ var network_data = JSON.parse("${matrix}");
         </div>
 
         <div>
-            The table above shows the number of sentences found to contain each co-occurrence of
+            <p>The table above shows the number of sentences found to contain each co-occurrence of
             the row heading keyword or annotation type and the column heading.  Empty cells indicate
-            zero occurrences.  You can click on a non-zero cell to view the list of matches found.
+            zero occurrences.  You can click on a non-zero cell to view the list of matches found.</p>
+
+            <p>If you did not enter any keywords or annotation types in the second list, the "$Sentence"
+            at the top is a placeholder for the column and a reminder that the count shows the number
+            of sentences containing matches (not the number of matches if some sentences contain more
+            than one).</p>
         </div>
 
     </section>
