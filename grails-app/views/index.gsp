@@ -23,7 +23,7 @@
                 <div class="form-group col-md-6">
                     <label for="keywords2">Second list to compare with (optional):</label>
                     <input type="text" class="form-control" id="keywords2" name="keywords2"
-                           placeholder="\"United States\" embargo $Organization"/>
+                           placeholder='"United States" embargo $Organization'/>
                 </div>
             </div>
 
