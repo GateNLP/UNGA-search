@@ -52,6 +52,8 @@
         annotation type.</p>
         <p>If two lists are given, it will search for co-occurrences within sentences of each possible pair,
         one from the first list and one from the second.</p>
+        <p>By default, the search covers whole documents, but you can restrict it to either preamble paragraphs
+        or operative paragraphs only.</p>
     </section>
 </div>
 
