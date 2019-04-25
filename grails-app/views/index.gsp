@@ -14,16 +14,16 @@
         <g:form controller="search" action="results" id="form">
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="keywords1">Space-separated list of keywords or annotation types:</label>
+                    <label for="keywords1">List of keywords or annotation types:</label>
                     <input type="text" class="form-control" id="keywords1" name="keywords1"
                            required
                            placeholder="cuba economic commercial $Person"/>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="keywords2">Another list to compare with (optional):</label>
+                    <label for="keywords2">Second list to compare with (optional):</label>
                     <input type="text" class="form-control" id="keywords2" name="keywords2"
-                           placeholder="united states embargo $Organization"/>
+                           placeholder="\"United States\" embargo $Organization"/>
                 </div>
             </div>
 
@@ -44,6 +44,14 @@
             </div>
         </g:form>
 
+        <p>In each text box above, you can enter a space-separated list of keywords or annotation types
+        (such as $Person, $Organization, $Location, $Date, $UNBIS) to search for.
+        Keyphrases which contains spaces should be in
+        "double quotes".  The second list is optional.</p>
+        <p>If one list is given, this tool will search for occurrences of each keyword/phrase and
+        annotation type.</p>
+        <p>If two lists are given, it will search for co-occurrences within sentences of each possible pair,
+        one from the first list and one from the second.</p>
     </section>
 </div>
 
