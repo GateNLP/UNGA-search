@@ -22,7 +22,9 @@ var network_data = JSON.parse("${matrix}");
             </div>
         </div>
 
-        <div>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
             <p>The table above shows the number of sentences found to contain each co-occurrence of
             the row heading keyword or annotation type and the column heading.  Empty cells indicate
             zero occurrences.  You can click on a non-zero cell to view the list of matches found.</p>
@@ -31,6 +33,8 @@ var network_data = JSON.parse("${matrix}");
             at the top is a placeholder for the column and a reminder that the count shows the number
             of sentences containing matches (not the number of matches if some sentences contain more
             than one).</p>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
 
     </section>
