@@ -28,7 +28,13 @@ class SearchController {
 
   def results() {
 
-    AssociationMatrix matrix = AssociationMatrix.build(params.keywords1, params.keywords2, params.searchArea);
+    // Make second list optional by defaulting to "$Token" (universal match)
+    secondList = "$Token";
+    if (params.keywords2) {
+      secondList = params.keywords2;
+    }
+
+    AssociationMatrix matrix = AssociationMatrix.build(params.keywords1, secondList, params.searchArea);
 
     WebUtils webUtils = new WebUtils(grailsApplication.config.mimir.username, grailsApplication.config.mimir.password);
 
