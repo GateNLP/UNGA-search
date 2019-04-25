@@ -28,8 +28,8 @@ class SearchController {
 
   def results() {
 
-    // Make second list optional by defaulting to "$Token" (universal match)
-    String secondList = '$Token';
+    // Make second list optional by defaulting to "$Sentence" (universal match)
+    String secondList = '$Sentence';
     if (params.keywords2) {
       secondList = params.keywords2;
     }
