@@ -16,7 +16,7 @@
             <g:each var="document" in="${results}" >
                 <div>
                     <!--<h1><a href="${document.getURL()}">${document.getTitle()}</a></h1>-->
-                    <h1 style="custom-doc-name">${document.getTitle()}</h1>
+                    <h1 class="custom-doc-name">${document.getTitle()}</h1>
 
                     <g:each var="sentence" in="${document.getSentences()}" >
                         <p>${sentence}</p>
