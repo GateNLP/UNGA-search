@@ -21,6 +21,13 @@ var network_data = JSON.parse("${matrix}");
                 <div id='svg_div'></div>
             </div>
         </div>
+
+        <div>
+            The table above shows the number of sentences found to contain each co-occurrence of
+            the row heading keyword or annotation type and the column heading.  Empty cells indicate
+            zero occurrences.  You can click on a non-zero cell to view the list of matches found.
+        </div>
+
     </section>
 
 
@@ -38,10 +45,6 @@ var network_data = JSON.parse("${matrix}");
     <input type="hidden" id="from" name="from"/>
     <input type="hidden" id="to" name="to"/>
 </g:form>
-
-<p>The table above shows the number of sentences found to contain each co-occurrence of
-the row heading keyword or annotation type and the column heading.  Empty cells indicate
-zero occurrences.  You can click on a non-zero cell to view the list of matches found.</p>
 
 </body>
 </html>
