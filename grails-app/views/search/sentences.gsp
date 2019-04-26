@@ -15,7 +15,7 @@
             <p>Sentence level co-occurences of <i>${params.source}</i> and <i>${params.target}</i></p>
             <g:each var="document" in="${results}" >
                 <div>
-                    <h1><a href="${document.getURL()}">${document.getTitle()}</a></h1>
+                    <h1><a href="../assets/pdfs/${document.getURL()}">${document.getTitle()}</a></h1>
                     <!--<h1 class="custom-doc-name">${document.getTitle()}</h1>-->
 
                     <g:each var="sentence" in="${document.getSentences()}" >
